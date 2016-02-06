@@ -20,3 +20,10 @@ myApp
 .run(function(){
   //intialize
 });
+
+myApp.controller('myController', ['$scope', function($scope){
+  $scope.myFirstName = "Micah";
+}]);
+
+// myApp.controller('myController', ['$scope', 'MicahService', 'NickService',function($scope, MicahService, NickService){
+// }]);
