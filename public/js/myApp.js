@@ -17,9 +17,10 @@ myApp
 .config(function(){
   //config
 })
-.run(function(){
+.run(['$rootScope', 'APP_VERSION', function($rootScope, APP_VERSION){
   //intialize
-});
+  $rootScope.APP_VERSION = APP_VERSION;
+}]);
 
 // myApp.controller('myController', ['$scope', function($scope){
 //   $scope.myFirstName = "Micah";
