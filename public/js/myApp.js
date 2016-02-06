@@ -21,10 +21,10 @@ myApp
   //intialize
 });
 
-myApp.controller('myController', ['$scope', function($scope){
-  $scope.myFirstName = "Micah";
-  $scope.myModel = "Ready Player One";
-}]);
+// myApp.controller('myController', ['$scope', function($scope){
+//   $scope.myFirstName = "Micah";
+//   $scope.myModel = "Ready Player";
+// }]);
 
 // myApp.controller('myController', ['$scope', 'MicahService', 'NickService',function($scope, MicahService, NickService){
 // }]);
