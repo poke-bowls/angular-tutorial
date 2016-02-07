@@ -2,7 +2,7 @@
   "use strict";
 
   function BookService ( ) {
-    var books = [
+    this.books = [
       {
         id : 1,
         title : 'Nigel Crying',
@@ -20,19 +20,27 @@
       }
     ];
 
-  this.getBooks = function() {
-    return books;
-  };
+    this.getBooks = function() {
+      return this.books;
+    };
 
-  this.getBook = function(id) {
-    return books.filter(function(book){
-      return book.id === id;
-    })
-    .reduce(function (_, book){
-      return book;
-    });
-  };
+    this.getBook = function(id) {
+      return this.books.filter(function(book){
+        return book.id === id;
+      })
+      .reduce(function (_, book){
+        return book;
+      });
+    };
 
+    this.addBook = function(book){
+      var nextId = this.books.length + 1;
+      this.books.push({
+        id : nextId,
+        title : book.title,
+        author : book.author
+      });
+    };
   }
 
   angular.module('myApp').service('BookService', BookService);

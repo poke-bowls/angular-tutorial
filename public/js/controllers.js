@@ -7,5 +7,5 @@ angular.module('myApp')
   $scope.myModel = "Ready Player One";
   $scope.mainCharacter = mainCharacter;
   $scope.characterVersion = CharacterVersionFactory;
-  $scope.books = BookService.getBooks();
+  $scope.BookService = BookService;
 }]);
