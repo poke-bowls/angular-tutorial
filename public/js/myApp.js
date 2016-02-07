@@ -8,7 +8,7 @@
 // });
 
 //Defining a module called "myApp" can differentiate becuase it has more than one argument
-angular.module('myApp', ['ngRoute']);
+angular.module('myApp', ['ngRoute', 'ngAnimate']);
 
 //Retrieval has only one argument
 var myApp = angular.module('myApp');
