@@ -13,5 +13,4 @@ angular.module('myApp')
   Movies.getMovies().success(function(movies){
     $scope.movies = movies;
   });
-
 }]);

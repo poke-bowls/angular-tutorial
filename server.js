@@ -25,6 +25,10 @@ app.get('/api/movies', function (req, res){
   res.json(movies);
 });
 
+app.get('*', function (req, res){
+  res.sendFile('/public/index.html', { root : __dirname });
+});
+
 app.listen(PORT, function(){
   process.stdout.write(`server listening on port ${PORT}`);
 });

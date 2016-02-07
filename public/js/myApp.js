@@ -8,25 +8,40 @@
 // });
 
 //Defining a module called "myApp" can differentiate becuase it has more than one argument
-angular.module('myApp', []);
+angular.module('myApp', ['ngRoute']);
 
 //Retrieval has only one argument
 var myApp = angular.module('myApp');
 
 myApp
-.config(['MoviesProvider', function(MoviesProvider){
+.config(['MoviesProvider', '$routeProvider', '$locationProvider', function(MoviesProvider, $routeProvider, $locationProvider){
   //config
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
+
   MoviesProvider.setEndpoint('http://localhost:8888/api/movies');
+  $routeProvider
+    .when('/', {
+      templateUrl : 'views/default.html'
+      })
+    .when('/books', {
+      templateUrl : 'views/books.html',
+      controller : 'BooksController'
+    })
+    .when('/movies', {
+      templateUrl : 'views/movies.html',
+      controller : 'MoviesController'
+    })
+    .when('/other', {
+      templateUrl : 'views/other.html',
+      controller : 'otherController'
+    });
+
+
 }])
 .run(['$rootScope', 'APP_VERSION', function($rootScope, APP_VERSION){
   //intialize
   $rootScope.APP_VERSION = APP_VERSION;
 }]);
-
-// myApp.controller('myController', ['$scope', function($scope){
-//   $scope.myFirstName = "Micah";
-//   $scope.myModel = "Ready Player";
-// }]);
-
-// myApp.controller('myController', ['$scope', 'MicahService', 'NickService',function($scope, MicahService, NickService){
-// }]);
